@@ -1,23 +1,34 @@
 {
-  "extends": [
+	"extends": [
 		"stylelint-config-standard-scss",
 		"stylelint-config-standard-vue",
-		"stylelint-config-standard-vue/scss",
-		"stylelint-config-html/vue"
+		"stylelint-config-standard-vue/scss"
 	],
-  "plugins": [
-    "stylelint-scss",
-    "stylelint-order"
-  ],
-  "rules": {
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": ["tailwind", "apply", "variants", "responsive", "screen"]
-      }
-    ],
-    "selector-class-pattern": null,
-    "scss/at-rule-no-unknown": true,
+	"plugins": [
+		"stylelint-scss",
+		"stylelint-order"
+	],
+	"rules": {
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": ["variants", "responsive", "screen", "mixin", "include", "forward", "use", "function", "return"]
+			}
+		],
+		"declaration-property-value-no-unknown": [
+			true,
+			{
+				"ignoreProperties": {
+					"/.*/": ["/toRem\\(\\d+\\)/", "/v-bind\\([^)]*\\)/"]
+				}
+			}
+		],
+		"selector-class-pattern": null,
+		"function-name-case": null,
+		"no-duplicate-selectors": null,
+		"scss/dollar-variable-pattern": null,
+		"scss/at-function-pattern": null,
+		"scss/double-slash-comment-whitespace-inside": null,
 		"order/order": [
 			"custom-properties",
 			"declarations"
@@ -214,9 +225,9 @@
 			"text-emphasis-style",
 			"text-emphasis-position",
 			"font",
-			"font-weight",
-			"font-size",
 			"font-family",
+			"font-size",
+			"font-weight",
 			"font-style",
 			"font-display",
 			"font-variant",
